@@ -1,17 +1,17 @@
 function platformer(){
     if (platformerCount === 0 ){
-        var player = createSprite(10,300,10,10);
-        var floor = createSprite(10,895,1000,1000);
-        var goal = createSprite(200,1,1000,10)
-        var Platform2= createSprite(Math.round(random(1,400)),Math.round(random(350,400)),100,10);
-        var Platform3= createSprite(Math.round(random(1,400)),Math.round(random(350,300)),100,10);
-        var Platform4= createSprite(Math.round(random(1,400)),Math.round(random(300,250)),100,10);
-        var Platform5= createSprite(Math.round(random(1,400)),Math.round(random(250,200)),100,10);
-        var Platform6= createSprite(Math.round(random(1,400)),Math.round(random(200,150)),100,10);
-        var Platform7= createSprite(Math.round(random(1,400)),Math.round(random(150,100)),100,10);
-        var Platform8= createSprite(Math.round(random(1,400)),Math.round(random(100,50)),100,10);
-        var Platform9= createSprite(Math.round(random(1,400)),Math.round(random(50,0)),100,10);
+        Platform2= createSprite(Math.round(random(1,400)),Math.round(random(350,400)),100,10);
+        Platform3= createSprite(Math.round(random(1,400)),Math.round(random(350,300)),100,10);
+        Platform4= createSprite(Math.round(random(1,400)),Math.round(random(300,250)),100,10);
+        Platform5= createSprite(Math.round(random(1,400)),Math.round(random(250,200)),100,10);
+        Platform6= createSprite(Math.round(random(1,400)),Math.round(random(200,150)),100,10);
+        Platform7= createSprite(Math.round(random(1,400)),Math.round(random(150,100)),100,10);
+        Platform8= createSprite(Math.round(random(1,400)),Math.round(random(100,50)),100,10);
+        Platform9= createSprite(Math.round(random(1,400)),Math.round(random(50,0)),100,10);
     }
+    var floor = createSprite(10,895,1000,1000);
+    var goal = createSprite(200,1,1000,10)
+    background('black')
     platformerCount = 1;
     
     pc.velocityY=pc.velocityY+1;
@@ -30,15 +30,15 @@ function platformer(){
     goal.shapeColor = "blue";
     
     
-    if(keyDown("left")){
+    if(keyDown("A")){
         pc.x = pc.x-5;
     }
     
-    if(keyDown("right")){
+    if(keyDown("D")){
         pc.x = pc.x+5;
     }
     
-    if(keyWentDown("up")&& pc.velocityY === 0){
+    if(keyWentDown("space") && pc.velocityY === 0){
         pc.velocityY = -15;
     }
     

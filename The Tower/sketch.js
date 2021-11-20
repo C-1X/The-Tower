@@ -15,8 +15,14 @@ var npc1,npc2,npc3,npc4,npc5;
 var startButton;
 var count = 0;
 var stageCount = 0;
-
-
+var Platform2
+var Platform3
+var Platform4
+var Platform5
+var Platform6
+var Platform7
+var Platform8
+var Platform9
 
 function preload() {
     //loadImage("")
@@ -42,7 +48,7 @@ function setup(){
     backgroundSprite.visible = false;
     backgroundSprite.scale = 5
     world = engine.world;
-    pc = createSprite(10,10,10,10)
+    pc = createSprite(10,380,10,10)
     //pc = new Player(windowWidth/4,windowHeight/4,10,10);
     npc1 = new NPC(100,100,10,10);
     npc2 = new NPC(100,100,10,10);
@@ -62,6 +68,7 @@ function setup(){
     skipButton.position(windowWidth/4,windowHeight/2);
     skipButton.size(60,30)
     skipButton.mousePressed(skipButtonPressed)
+    upButton = createSprite(600,windowHeight/2,60,30)
 }
 
 function draw(){
@@ -78,10 +85,12 @@ function draw(){
         background("white")
         if(stageCount===1){
             skipButton.visible=true;
-            mazePuzzle();
+            //mazePuzzle();
+            platformer();
+            stageCount = 2
         }
         else if(stageCount===2){
-            platformer();
+        //platformer();
         }
         pc.display()
         npc1.display()
@@ -97,9 +106,9 @@ function buttonPressed(){
     console.log(windowWidth/2)
     backgroundSprite.visible = false;
     ball.visible = true;
-    stageCount = 1
+    stageCount = stageCount +1
 }
 
 function skipButtonPressed(){
-    stageCount = 2
+    stageCount = stageCount +1
 }
